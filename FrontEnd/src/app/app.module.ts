@@ -8,6 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 
 import { AppPropertyComponent } from './property/property-card/app-property-card.component';
 import { PropertyListComponent } from './property/property-list/property-list.component';
@@ -51,6 +53,8 @@ const appRoutes:Routes=[
     ReactiveFormsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+
   ],
   providers: [
     HousingService,
