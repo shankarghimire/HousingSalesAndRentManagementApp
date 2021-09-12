@@ -16,6 +16,6 @@
   <div class="card-body p-2">
     <h2>{{ property.Name}}</h2>
     <h3>{{ property.PType }}</h3>
-    <h3>{{ property.Price }}</h3>
+    <h3 *ngIf="property.Price">{{ property.Price }}</h3>
   </div>
 </div>

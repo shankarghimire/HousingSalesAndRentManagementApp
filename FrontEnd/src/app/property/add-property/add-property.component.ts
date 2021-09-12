@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { nlLocale } from 'ngx-bootstrap/chronos';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { IProperty } from '../IProperty.interface';
 
 @Component({
   selector: 'app-add-property',
@@ -11,7 +13,24 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 export class AddPropertyComponent implements OnInit {
 @ViewChild('Form') addPropertyForm!:NgForm;
 @ViewChild('formTabs') formTabs?: TabsetComponent;
+
+
+
+//Will come from masters
+bhkTypes:Array<string>=['1','2','3','4'];
+propertyTypes:Array<string> =['House','Apartment','Duplex'];
+furnishTypes:Array<string> = ['Fully','Semi','Unfurnished'];
+
+propertyView:IProperty={
+  Id:null||0,
+  Name:'',
+  Price:null || 0,
+  SellRent:0,
+  PType:'',
+};
+
 SellRent = '1';
+// btnRadio!:string;
 
   constructor(private router:Router) { }
 
