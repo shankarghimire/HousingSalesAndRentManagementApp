@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-6 m-auto">
+  <div class="card m-auto">
+    <div class="card-header bg-primary text-white">
+      <h3>  Register</h3>
+
+    </div>
+    <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group col-12">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control"
+            formControlName="userName">
+            <!-- Method I: -->
+            <!-- <span class="error-block" *ngIf="!registerForm.get('userName')!.valid && registerForm.get('userName')!.touched">
+              Please provide name
+            </span> -->
+
+            <!-- Method II: -->
+            <!-- for a single error message -->
+            <!-- <span class="error-block" *ngIf="!userName?.valid && userName?.touched">
+              Please provide name!
+            </span> -->
+
+            <!-- for two error types -->
+            <span class="error-block" *ngIf="!userName.valid && (userName.touched || userSubmitted)">
+              <span *ngIf="userName.errors!.required"> Please provide name</span>
+              <span *ngIf="userName.errors!.minlength">Name must be at least 2 character long</span>
+            </span>
+        </div>
+
+        <div class="form-group col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="email">
+          <span *ngIf="!email.valid && (email.touched || userSubmitted)" class="error-block">
+            <span *ngIf="email.hasError('required')">
+                Please provide email id
+            </span>
+            <span *ngIf="email.hasError('email')">
+              Please provide valid email id
+            </span>
+          </span>
+        </div>
+        <div class="row">
+        <div class="form-group col-6">
+          <label for="passwrod" class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password">
+          <span *ngIf="!password.valid && (password.touched || userSubmitted)" class="error-block">
+            <span *ngIf="password.hasError('required')">
+              Please provide password
+            </span>
+            <!-- Method I: -->
+            <!-- <span *ngIf="password.errors['required']">
+              Pleae provide password
+            </span> -->
+            <!-- Method II: -->
+            <span *ngIf="password.errors?.minlength">
+              Password should not be lesser than 8 character
+            </span>
+          </span>
+        </div>
+
+        <div class="form-group col-6">
+          <label for="cpassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" formControlName="confirmPassword">
+          <span  *ngIf="!confirmPassword.valid && (confirmPassword.touched || userSubmitted)" class="error-block">
+            <span *ngIf="confirmPassword.hasError('required')">
+              Please confirm password
+            </span>
+          </span>
+            <span *ngIf="registerForm.hasError('notmatched') && confirmPassword.valid" class="error-block">
+              Password not matched
+            </span>
+        </div>
+      </div>
+        <div class="form-group col-12">
+          <label for="mobile" class="form-label">Mobile</label>
+          <input type="text" class="form-control" formControlName="mobile">
+          <span  *ngIf="!mobile.valid && (mobile.touched || userSubmitted)" class="error-block">
+            <span *ngIf="mobile.hasError('required')">
+              Please provide mobile
+            </span>
+            <span *ngIf="mobile.hasError('maxlength')" class="error-block">
+              Invalid mobile number
+            </span>
+        </span>
+        </div>
+
+        <div class="form-group col-12">
+          <button type="submit" class="btn btn-primary my-2">Save</button>
+          <button type="reset" class="btn btn-secondary my-2 ms-2">Cancel</button>
+        </div>
+        <!-- To show the form value on the form  -->
+        <!-- Form Values: {{registerForm.value | json}}<br>
+        Form Status:{{registerForm.valid}} -->
+      </form>
+    </div>
+  </div>
+  </div>
+</div>

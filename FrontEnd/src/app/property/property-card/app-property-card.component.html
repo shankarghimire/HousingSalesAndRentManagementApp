@@ -1,0 +1,21 @@
+<div class="card mt-2 mb-2">
+  <div class="card-img-wrapper">
+    <img *ngIf="property.Image" class="card-img-top" src="assets/images/{{property.Image}}.png" />
+    <img *ngIf="!property.Image" class="card-img-top" src="assets/images/house_default.png" />
+
+    <ul class="list-inline text-center member-icons animate" >
+        <li class="list-inline-item">
+            <button class="btn btn-primary" routerLink="/property-detail/{{property.Id}}"> E</button>
+        </li>
+        <li class="list-inline-item">
+            <button class="btn btn-primary"> C</button>
+        </li>
+    </ul>
+  </div>
+
+  <div class="card-body p-2">
+    <h2>{{ property.Name}}</h2>
+    <h3>{{ property.PType }}</h3>
+    <h3>{{ property.Price }}</h3>
+  </div>
+</div>
