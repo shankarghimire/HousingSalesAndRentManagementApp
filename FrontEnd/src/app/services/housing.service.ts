@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import { IProperty } from '../property/IProperty.interface';
+import { IProperty } from '../model/iproperty';
 import { Observable } from 'rxjs';
 import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
 

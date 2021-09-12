@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { nlLocale } from 'ngx-bootstrap/chronos';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { IProperty } from '../IProperty.interface';
+import { IProperty } from '../../model/iproperty';
 
 @Component({
   selector: 'app-add-property',
@@ -23,10 +23,18 @@ furnishTypes:Array<string> = ['Fully','Semi','Unfurnished'];
 
 propertyView:IProperty={
   Id:null||0,
-  Name:'',
+  Name:null||'',
   Price:null || 0,
   SellRent:0,
-  PType:'',
+  PType:null||'',
+  FType:null||'',
+  BHK:null || 0,
+  BuiltArea : null ||0,
+  City : null||'',
+  RTM:null ||0,
+  Description:null||'',
+
+
 };
 
 SellRent = '1';
